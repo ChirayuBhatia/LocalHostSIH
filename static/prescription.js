@@ -95,35 +95,34 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+function postData() {
+    // Sample JSON data
+    var jsonData = {
+        "id": 1,
+        "title": "Sample Title",
+        // Add more properties as needed
+    };
 
-document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('totalAmount').addEventListener('click', function () {
-       // Get the contents of the script.js file
-        fetch('prescription.js')
-            .then(response => response.text())
-            .then(scriptContent => {
-                // Simulate sending a POST message with the script content
-                const postData = {
-                    script: scriptContent
-                };  
-   
+    // Convert JSON data to a string
+    var jsonString = JSON.stringify(jsonData);
 
-    // Update the table with the posted data
-    updateTable(postData);
-    .catch(error => console.error('Error fetching script:', error));
-    });            
+    // URL where you want to send the POST request
+    var url = "your_api_endpoint_url";
 
-    function updateTable(data) {
-        const table = document.getElementById('medicinesTable');
-
-        // Create a new row
-        const newRow = table.insertRow();
-
-        // Add cells to the new row
-        const scriptCell = newRow.insertCell(0);
-      
-
-        // Set cell values from the posted data
-       scriptCell.textContent = data.script;
-    }
-});
+    // Perform the POST request using the fetch API
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: jsonString,
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Handle the response data here
+        console.log('Response:', data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
