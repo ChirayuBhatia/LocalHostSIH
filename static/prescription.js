@@ -99,7 +99,7 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('totalAmount').addEventListener('click', function () {
        // Get the contents of the script.js file
-        fetch('script.js')
+        fetch('prescription.js')
             .then(response => response.text())
             .then(scriptContent => {
                 // Simulate sending a POST message with the script content
