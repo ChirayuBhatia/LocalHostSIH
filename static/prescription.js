@@ -93,3 +93,32 @@ document.addEventListener('DOMContentLoaded', function () {
     setStyles();
     window.addEventListener('resize', setStyles);
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Simulate sending a POST message
+    const postData = {
+        name: 'New Person',
+        age: 30
+    };
+
+    // Update the table with the posted data
+    updateTable(postData);
+
+    function updateTable(data) {
+        const table = document.getElementById('medicinesTable');
+
+        // Create a new row
+        const newRow = table.insertRow();
+
+        // Add cells to the new row
+        const nameCell = newRow.insertCell(0);
+        const ageCell = newRow.insertCell(1);
+
+        // Set cell values from the posted data
+        medicinenameCell.textContent = data.medicinename;
+        quantityCell.textContent = data.quantity;
+        discriptionCell.textContent = data.discription;
+    }
+});
