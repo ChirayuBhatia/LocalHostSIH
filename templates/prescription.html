@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/prescription.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <title>Prescribed Medicines</title>
+</head>
+<body>
+
+    <header>
+        <h1>Prescribed Medicines</h1>
+    </header>
+
+    <div id="medicinesTable">
+        <table>
+            <thead>
+                <tr>
+                    <th>Medicine Name</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for med in meds %}
+                    <tr>
+                        <td>{{ med.Name }}</td>
+                        <td>{{ med.Qty }}</td>
+                        <td>{{ med.Des }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div id="totalAmount">
+            <button></button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
