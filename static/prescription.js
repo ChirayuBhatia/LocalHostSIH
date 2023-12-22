@@ -93,3 +93,36 @@ document.addEventListener('DOMContentLoaded', function () {
     setStyles();
     window.addEventListener('resize', setStyles);
 });
+
+
+function postData() {
+    // Sample JSON data
+    var jsonData = {
+        "id": 1,
+        "title": "Sample Title",
+        // Add more properties as needed
+    };
+
+    // Convert JSON data to a string
+    var jsonString = JSON.stringify(jsonData);
+
+    // URL where you want to send the POST request
+    var url = "your_api_endpoint_url";
+
+    // Perform the POST request using the fetch API
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: jsonString,
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Handle the response data here
+        console.log('Response:', data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
