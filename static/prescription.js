@@ -95,34 +95,18 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-function postData() {
-    // Sample JSON data
-    var jsonData = {
-        "id": 1,
-        "title": "Sample Title",
-        // Add more properties as needed
-    };
+  // Access the data passed from Flask
+        var dataFromFlask = {{ data | tojson | safe }};
+        
+        // Now you can use 'dataFromFlask' in your JavaScript code
+        console.log(dataFromFlask);
+    
 
-    // Convert JSON data to a string
-    var jsonString = JSON.stringify(jsonData);
+    <!-- Include your JavaScript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+/ static/script.js
+// Access the data passed from Flask in the HTML template
+console.log(dataFromFlask);
 
-    // URL where you want to send the POST request
-    var url = "your_api_endpoint_url";
+// Your additional JavaScript code here
 
-    // Perform the POST request using the fetch API
-    fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: jsonString,
-    })
-    .then(response => response.json())
-    .then(data => {
-        // Handle the response data here
-        console.log('Response:', data);
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
