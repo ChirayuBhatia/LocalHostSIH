@@ -106,12 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 const postData = {
                     script: scriptContent
                 };  
-    // Simulate sending a POST message
-    const postData = {
-        medicinename: 'New Person',
-        quantity: " ",
-        discription:" ",
-    };
+   
 
     // Update the table with the posted data
     updateTable(postData);
@@ -125,9 +120,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const newRow = table.insertRow();
 
         // Add cells to the new row
-        const medicinenameCell = newRow.insertCell(0);
-        const quantityCell = newRow.insertCell(1);
-         const discriptionCell = newRow.insertCell(2);
+        const scriptCell = newRow.insertCell(0);
+      
 
         // Set cell values from the posted data
        scriptCell.textContent = data.script;
