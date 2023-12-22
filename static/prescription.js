@@ -103,8 +103,8 @@ document.addEventListener('DOMContentLoaded', function () {
     
 
     <!-- Include your JavaScript file -->
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-/ static/script.js
+    <script src="{{ url_for('static', filename='prescription.js') }}"></script>
+/ static/prescription.js
 // Access the data passed from Flask in the HTML template
 console.log(dataFromFlask);
 
