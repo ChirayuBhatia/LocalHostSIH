@@ -97,7 +97,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('updateButton').addEventListener('click', function () {
+    document.getElementById('totalAmount').addEventListener('click', function () {
+       // Get the contents of the script.js file
+        fetch('script.js')
+            .then(response => response.text())
+            .then(scriptContent => {
+                // Simulate sending a POST message with the script content
+                const postData = {
+                    script: scriptContent
+                };  
     // Simulate sending a POST message
     const postData = {
         medicinename: 'New Person',
@@ -107,6 +115,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Update the table with the posted data
     updateTable(postData);
+    .catch(error => console.error('Error fetching script:', error));
+    });            
 
     function updateTable(data) {
         const table = document.getElementById('medicinesTable');
@@ -120,8 +130,6 @@ document.addEventListener('DOMContentLoaded', function () {
          const discriptionCell = newRow.insertCell(2);
 
         // Set cell values from the posted data
-        medicinenameCell.textContent = data.medicinename;
-        quantityCell.textContent = data.quantity;
-        discriptionCell.textContent = data.discription;
+       scriptCell.textContent = data.script;
     }
 });
