@@ -99,8 +99,9 @@ document.addEventListener('DOMContentLoaded', function () {
 document.addEventListener('DOMContentLoaded', function () {
     // Simulate sending a POST message
     const postData = {
-        name: 'New Person',
-        age: 30
+        medicinename: 'New Person',
+        quantity: " ",
+        discription:" ",
     };
 
     // Update the table with the posted data
@@ -113,8 +114,9 @@ document.addEventListener('DOMContentLoaded', function () {
         const newRow = table.insertRow();
 
         // Add cells to the new row
-        const nameCell = newRow.insertCell(0);
-        const ageCell = newRow.insertCell(1);
+        const medicinenameCell = newRow.insertCell(0);
+        const quantityCell = newRow.insertCell(1);
+         const discriptionCell = newRow.insertCell(2);
 
         // Set cell values from the posted data
         medicinenameCell.textContent = data.medicinename;
