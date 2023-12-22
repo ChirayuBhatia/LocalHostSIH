@@ -97,6 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('updateButton').addEventListener('click', function () {
     // Simulate sending a POST message
     const postData = {
         medicinename: 'New Person',
